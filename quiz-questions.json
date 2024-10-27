@@ -1,5 +1,4 @@
 [
-    
     {
         "question": "Quel physicien est connu pour sa théorie de la relativité restreinte et générale ?",
         "answers": ["Isaac Newton", "Albert Einstein", "Niels Bohr", "Max Planck"],
@@ -149,8 +148,7 @@
         "question": "Quelle est la distance de la Terre à la Lune ?",
         "answers": ["384 400 km", "150 000 km", "500 000 km", "800 000 km"],
         "correctAnswer": 0
-    }
-
+    },
     {
         "question": "Quel est le capital de la France ?",
         "answers": ["Berlin", "Madrid", "Paris", "Rome"],
@@ -187,173 +185,138 @@
         "correctAnswer": 1
     },
     {
-        "question": "Quel pays est connu pour ses kangourous ?",
-        "answers": ["Nouvelle-Zélande", "Australie", "Afrique du Sud", "Canada"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quel est l'instrument de musique à cordes pincées ?",
-        "answers": ["Guitare", "Piano", "Flûte", "Batterie"],
+        "question": "Dans quelle ville se trouve le célèbre opéra 'La Scala' ?",
+        "answers": ["Milan", "Rome", "Vienne", "Paris"],
         "correctAnswer": 0
     },
     {
-        "question": "Quel est le symbole chimique de l'eau ?",
-        "answers": ["H2O", "O2", "CO2", "NaCl"],
-        "correctAnswer": 0
-    },
-    {
-        "question": "Quel est le plus grand désert du monde ?",
-        "answers": ["Sahara", "Désert de Gobi", "Antarctique", "Kalahari"],
+        "question": "Quel élément est nécessaire à la photosynthèse ?",
+        "answers": ["Oxygène", "Azote", "Carbone", "Hydrogène"],
         "correctAnswer": 2
     },
     {
-        "question": "Quel est l'organe principal de la circulation sanguine ?",
-        "answers": ["Poumons", "Cœur", "Foie", "Reins"],
+        "question": "Quelle est la plus grande île du monde ?",
+        "answers": ["Nouvelle-Guinée", "Groenland", "Borneo", "Madagascar"],
         "correctAnswer": 1
-    },
-    {
-        "question": "Qui a découvert la pénicilline ?",
-        "answers": ["Marie Curie", "Alexander Fleming", "Louis Pasteur", "Isaac Newton"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quel est le pays d'origine des pâtes ?",
-        "answers": ["France", "Chine", "Italie", "Grèce"],
-        "correctAnswer": 2
-    },
-    {
-        "question": "Quelle est la langue la plus parlée au monde ?",
-        "answers": ["Espagnol", "Anglais", "Mandarin", "Arabe"],
-        "correctAnswer": 2
-    },
-    {
-        "question": "Quel animal est connu comme le roi de la jungle ?",
-        "answers": ["Tigre", "Lion", "Éléphant", "Giraffe"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quelle est la capitale du Japon ?",
-        "answers": ["Kyoto", "Tokyo", "Osaka", "Hokkaido"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quel est l'organe responsable de la vision ?",
-        "answers": ["Cerveau", "Cœur", "Yeux", "Oreilles"],
-        "correctAnswer": 2
-    },
-    {
-        "question": "Quel métal est liquide à température ambiante ?",
-        "answers": ["Mercure", "Fer", "Aluminium", "Cuivre"],
-        "correctAnswer": 0
-    },
-    {
-        "question": "Qui a écrit 'Roméo et Juliette' ?",
-        "answers": ["Charles Dickens", "William Shakespeare", "Leo Tolstoy", "Mark Twain"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quel est le pays le plus peuplé du monde ?",
-        "answers": ["Inde", "États-Unis", "Chine", "Indonésie"],
-        "correctAnswer": 2
-    },
-    {
-        "question": "Quelle est la plus grande planète du système solaire ?",
-        "answers": ["Terre", "Saturne", "Jupiter", "Neptune"],
-        "correctAnswer": 2
     },
     {
         "question": "Quel est le principal gaz à effet de serre ?",
-        "answers": ["Oxygène", "Carbone diémique", "Méthane", "Dioxyde de carbone"],
+        "answers": ["Dioxyde de carbone", "Méthane", "Protoxyde d'azote", "Ozone"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel fruit est connu comme le 'roi des fruits' ?",
+        "answers": ["Mangue", "Durian", "Ramboutan", "Litchi"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle est la langue la plus parlée au monde ?",
+        "answers": ["Espagnol", "Mandarin", "Anglais", "Arabe"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel animal est connu comme le 'roi de la jungle' ?",
+        "answers": ["Tigre", "Lion", "Éléphant", "Gorille"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Qui a découvert l'Amérique en 1492 ?",
+        "answers": ["Ferdinand Magellan", "Christopher Columbus", "Vasco de Gama", "Hernán Cortés"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le plus grand pays du monde ?",
+        "answers": ["États-Unis", "Chine", "Canada", "Russie"],
         "correctAnswer": 3
     },
     {
-        "question": "Qui a peint 'La Nuit étoilée' ?",
-        "answers": ["Claude Monet", "Vincent van Gogh", "Pablo Picasso", "Henri Matisse"],
+        "question": "Quelle est la capitale du Canada ?",
+        "answers": ["Toronto", "Ottawa", "Vancouver", "Montréal"],
         "correctAnswer": 1
     },
     {
-        "question": "Quel est le symbole chimique du fer ?",
-        "answers": ["Fe", "F", "Ir", "Fi"],
-        "correctAnswer": 0
-    },
-    {
-        "question": "Quel est le nom du premier homme à avoir marché sur la Lune ?",
-        "answers": ["Yuri Gagarin", "Buzz Aldrin", "Neil Armstrong", "Michael Collins"],
+        "question": "Quel est le plus grand continent du monde ?",
+        "answers": ["Europe", "Afrique", "Asie", "Amérique du Nord"],
         "correctAnswer": 2
     },
     {
-        "question": "Quelle est la monnaie utilisée au Japon ?",
-        "answers": ["Yen", "Won", "Dollar", "Euro"],
+        "question": "Qui a écrit 'Roméo et Juliette' ?",
+        "answers": ["Charles Dickens", "William Shakespeare", "George Orwell", "Jane Austen"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le principal minerai de fer ?",
+        "answers": ["Hématite", "Magnétite", "Limonite", "Bauxite"],
         "correctAnswer": 0
     },
     {
-        "question": "Quelle est la capitale de l'Italie ?",
-        "answers": ["Florence", "Rome", "Milan", "Venise"],
+        "question": "Quel est le gaz principal qui compose l'atmosphère terrestre ?",
+        "answers": ["Dioxyde de carbone", "Azote", "Oxygène", "Hélium"],
         "correctAnswer": 1
     },
     {
-        "question": "Quel est l'organe responsable de l'audition ?",
-        "answers": ["Cerveau", "Oreilles", "Yeux", "Nez"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quel est l'instrument de musique à vent le plus ancien ?",
-        "answers": ["Flûte", "Saxophone", "Trompette", "Hautbois"],
+        "question": "Quelle est la principale source d'énergie renouvelable ?",
+        "answers": ["Énergie solaire", "Énergie éolienne", "Énergie géothermique", "Énergie hydraulique"],
         "correctAnswer": 0
     },
     {
-        "question": "Quel est le plus grand mammifère marin ?",
-        "answers": ["Requin blanc", "Dauphin", "Baleine bleue", "Orque"],
-        "correctAnswer": 2
-    },
-    {
-        "question": "En quelle année l'homme a-t-il marché sur la Lune pour la première fois ?",
-        "answers": ["1965", "1969", "1971", "1975"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quel est le plus long fleuve du monde ?",
-        "answers": ["Nil", "Amazone", "Yangzi Jiang", "Mississippi"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quel pays est surnommé 'le pays du Soleil-Levant' ?",
-        "answers": ["Chine", "Corée", "Thaïlande", "Japon"],
-        "correctAnswer": 3
-    },
-    {
-        "question": "Quelle est la plus petite planète du système solaire ?",
-        "answers": ["Mars", "Mercure", "Pluton", "Vénus"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quelle est la capitale de l'Australie ?",
-        "answers": ["Sydney", "Canberra", "Melbourne", "Brisbane"],
-        "correctAnswer": 1
-    },
-    {
-        "question": "Quel est le plus grand pays du monde en superficie ?",
-        "answers": ["Canada", "Chine", "États-Unis", "Russie"],
-        "correctAnswer": 3
-    },
-    {
-        "question": "Dans quelle ville se trouve la Tour Eiffel ?",
-        "answers": ["Paris", "Lyon", "Marseille", "Nice"],
+        "question": "Quel est le point le plus bas de la Terre ?",
+        "answers": ["Mer Morte", "Fossé des Mariannes", "Désert du Sahara", "Rift africain"],
         "correctAnswer": 0
     },
     {
-        "question": "Qui a composé la 5e Symphonie ?",
-        "answers": ["Mozart", "Bach", "Beethoven", "Chopin"],
-        "correctAnswer": 2
-    },
-    {
-        "question": "Qui a peint 'La Cène' ?",
-        "answers": ["Raphaël", "Michel-Ange", "Leonard de Vinci", "Donatello"],
-        "correctAnswer": 2
-    },
-    {
-        "question": "Quelle est la plus ancienne civilisation connue ?",
-        "answers": ["Égypte", "Mésopotamie", "Chine", "Indus"],
+        "question": "Quel est l'instrument de mesure de la pression atmosphérique ?",
+        "answers": ["Thermomètre", "Baromètre", "Anémomètre", "Hygromètre"],
         "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le plus grand désert du monde ?",
+        "answers": ["Désert de Gobi", "Désert de Sahara", "Désert d'Atacama", "Désert de Kalahari"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle est la plus grande cascade du monde ?",
+        "answers": ["Chutes du Niagara", "Chutes Angel", "Chutes Victoria", "Chutes du Rhin"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le principal organe de la respiration ?",
+        "answers": ["Cœur", "Foie", "Poumons", "Estomac"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel est le nom de la galaxie dans laquelle se trouve la Terre ?",
+        "answers": ["Galaxie d'Andromède", "Voie lactée", "Galaxie du Sombrero", "Galaxie du Tournesol"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est l'animal le plus rapide du monde ?",
+        "answers": ["Guépard", "Faucon pèlerin", "Baleine", "Hirondelle"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel pays est célèbre pour ses kangourous ?",
+        "answers": ["Australie", "Nouvelle-Zélande", "Canada", "Brésil"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel est le principal composant du verre ?",
+        "answers": ["Calcaire", "Sable", "Argile", "Ciment"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle est la plus petite unité de vie ?",
+        "answers": ["Organe", "Tissu", "Cellule", "Système"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quelle est la principale cause de l'effet de serre ?",
+        "answers": ["Dioxyde de carbone", "Méthane", "Oxygène", "Azote"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel est le plus grand animal terrestre ?",
+        "answers": ["Éléphant d'Afrique", "Baleine bleue", "Girafe", "Rhinocéros"],
+        "correctAnswer": 0
     }
 ]

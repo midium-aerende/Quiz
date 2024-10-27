@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Ajouter des Questions</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #F9D348;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .admin-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FF5252;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    label {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #FF5252;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    .answers-container {
+      display: grid;
+      gap: 10px;
+      overflow: auto;
+      margin-bottom: 15px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 100%;
+      height: 100px;
+    }
+
+    .answers-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-content: center;
+    }
+
+    input[type="text"].answer-input {
+      width: 100%;
+      height: 40px;
+      margin: auto;
+    }
+
+    .remove-btn {
+      background-color: #FF5252;
+      height: 40px;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding-inline: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 14px;
+      margin: auto;
+    }
+
+    .remove-btn:hover {
+      background-color: #E64A19;
+    }
+
+    .add-answer-btn,
+    button[type="submit"],
+    .view-details-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      color: white;
+      background-color: #FF5252;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-bottom: 15px;
+    }
+
+    .add-answer-btn:hover,
+    button[type="submit"]:hover,
+    .view-details-btn:hover {
+      background-color: #E64A19;
+    }
+
+    /* Toast notification styles */
+    .toast {
+      position: fixed;
+      top: 20px;
+      /* Positioning the toast at the top */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.5s, top 0.5s;
+      /* Changed from bottom to top */
+    }
+
+    .toast.show {
+      opacity: 1;
+      top: 30px;
+      /* Slide down effect */
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1000;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Black w/ opacity */
+      padding-top: 100px;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      /* Changed to white for contrast */
+      margin: 15% auto;
+      /* 15% from the top and centered */
+      padding: 20px;
+      /* Increased padding for better spacing */
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      /* Added shadow for depth */
+      width: 80%;
+      /* Could be more or less, depending on screen size */
+      max-width: 400px;
+      /* Set a max width */
+      text-align: center;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #FF5252;
+      /* Consistent with buttons */
+    }
+
+    .close {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #FF5252;
+      /* Changed close button hover color */
+    }
+
+    .modal-body p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .modal-footer button {
+      background-color: #FF5252;
+      /* Consistent with buttons */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .modal-footer button:hover {
+      background-color: #E64A19;
+      /* Hover color */
+    }
+
+    @media (max-width: 500px) {
+      .admin-container {
+        padding: 15px;
+      }
+
+      input[type="text"],
+      textarea,
+      select {
+        padding: 8px;
+        font-size: 14px;
+      }
+
+      .remove-btn {
+        height: 40px;
+      }
+
+      .add-answer-btn,
+      button[type="submit"],
+      .view-details-btn {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .answers-container {
+        max-height: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="admin-container">
+    <h1>Ajouter une Question</h1>
+    <form id="quiz-form">
+      <label for="question">Question :</label>
+      <textarea id="question" rows="3" placeholder="Entrez votre question ici..." required></textarea>
+
+      <label>Réponses :</label>
+      <div class="answers-container" id="answers-container">
+        <div class="answers-grid">
+          <input type="text" class="answer-input" name="answer" placeholder="Entrez la réponse ici..." required oninput="updateCorrectAnswerOptions()">
+          <button type="button" class="remove-btn" onclick="removeAnswer(this)">Supprimer</button>
+        </div>
+        <div class="answers-grid">
+          <input type="text" class="answer-input" name="answer" placeholder="Entrez la réponse ici..." required oninput="updateCorrectAnswerOptions()">
+          <button type="button" class="remove-btn" onclick="removeAnswer(this)">Supprimer</button>
+        </div>
+      </div>
+
+      <label for="correct-answer">Réponse Correcte :</label>
+      <select id="correct-answer" required>
+        <option value="" disabled selected>Choisissez une réponse</option>
+      </select>
+
+      <button type="button" class="add-answer-btn" onclick="addAnswer()">Ajouter une réponse</button>
+      <button type="submit">Enregistrer la question</button>
+      <button type="button" class="view-details-btn" onclick="window.location.href='table.html';">Voir les Détails des Questions</button>
+    </form>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- Modal for confirmation -->
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Confirmation</h2>
+        <span class="close" onclick="closeModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Êtes-vous sûr de vouloir supprimer cette réponse ?</p>
+      </div>
+      <div class="modal-footer">
+        <button onclick="confirmRemove()">Confirmer</button>
+        <button onclick="closeModal()">Annuler</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let removeButton;
+    
+    // Function to load existing quiz questions from a JSON file and overwrite localStorage
+    function loadQuestionsFromJSON() {
+    fetch('quiz-questions.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const storedQuestions = JSON.parse(localStorage.getItem('quizQuestions')) || [];
+            data.forEach(newQuestion => {
+                const existingIndex = storedQuestions.findIndex(q => 
+                    q.question === newQuestion.question && 
+                    JSON.stringify(q.answers) === JSON.stringify(newQuestion.answers)
+                );
+    
+                if (existingIndex === -1) {
+                    // Only add if it doesn't already exist
+                    storedQuestions.push(newQuestion);
+                }
+            });
+            // Store the updated list back to localStorage
+            localStorage.setItem('quizQuestions', JSON.stringify(storedQuestions));
+        })
+        .catch(error => {
+            console.error('Error fetching the JSON file:', error);
+        });
+    }
+    
+    
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.innerText = message;
+        toast.classList.add('show');
+    
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+    
+    function addAnswer() {
+        const container = document.getElementById('answers-container');
+        const newAnswer = document.createElement('div');
+        newAnswer.className = 'answers-grid';
+        newAnswer.innerHTML = `
+            <input type="text" class="answer-input" name="answer" placeholder="Entrez la réponse ici..." required oninput="updateCorrectAnswerOptions()">
+            <button type="button" class="remove-btn" onclick="removeAnswer(this)">Supprimer</button>
+        `;
+        container.appendChild(newAnswer);
+    }
+    
+    function removeAnswer(button) {
+        removeButton = button; // Store the button reference
+        document.getElementById('confirmationModal').style.display = 'block'; // Show modal
+    }
+    
+    function confirmRemove() {
+        const container = document.getElementById('answers-container');
+        if (container.querySelectorAll('.answers-grid').length > 2) {
+            removeButton.parentElement.remove();
+            updateCorrectAnswerOptions();
+            showToast('Réponse supprimée avec succès !');
+        } else {
+            showToast("Il doit y avoir au moins deux réponses !");
+        }
+        closeModal();
+    }
+    
+    function closeModal() {
+        document.getElementById('confirmationModal').style.display = 'none';
+    }
+    
+    function updateCorrectAnswerOptions() {
+        const answers = [...document.querySelectorAll('input[name="answer"]')].map(input => input.value);
+        const correctAnswerSelect = document.getElementById('correct-answer');
+        correctAnswerSelect.innerHTML = `<option value="" disabled selected>Choisissez une réponse</option>`;
+    
+        answers.forEach((answer, index) => {
+            if (answer.trim()) {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = answer;
+                correctAnswerSelect.appendChild(option);
+            }
+        });
+    }
+    
+    document.getElementById('quiz-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const question = document.getElementById('question').value.trim();
+    const answers = [...document.querySelectorAll('input[name="answer"]')].map(input => input.value.trim());
+    const correctAnswerIndex = document.getElementById('correct-answer').value;
+    
+    if (!question || answers.some(answer => !answer) || correctAnswerIndex === "") {
+        showToast('Veuillez remplir tous les champs.');
+        return;
+    }
+    
+    const quizQuestion = {
+        question,
+        answers,
+        correctAnswer: parseInt(correctAnswerIndex)
+    };
+    
+    // Load existing questions from localStorage
+    const storedQuestions = JSON.parse(localStorage.getItem('quizQuestions')) || [];
+    
+    // Check for duplicates
+    const existingIndex = storedQuestions.findIndex(q => 
+        q.question === quizQuestion.question && 
+        JSON.stringify(q.answers) === JSON.stringify(quizQuestion.answers)
+    );
+    
+    if (existingIndex !== -1) {
+        // Replace the existing question
+        storedQuestions[existingIndex] = quizQuestion;
+        showToast('Question mise à jour avec succès !');
+    } else {
+        // Add the new question
+        storedQuestions.push(quizQuestion);
+        showToast('Question ajoutée avec succès !');
+    }
+    
+    localStorage.setItem('quizQuestions', JSON.stringify(storedQuestions));
+    
+    document.getElementById('quiz-form').reset();
+    updateCorrectAnswerOptions();
+    });
+    
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('confirmationModal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+    
+    // Load questions from JSON on document ready
+    document.addEventListener('DOMContentLoaded', function() {
+        loadQuestionsFromJSON();
+    });
+  </script>
+
+</body>
+
+</html>

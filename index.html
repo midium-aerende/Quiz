@@ -261,23 +261,6 @@
         window.location.href = 'quiz.html'; 
     }
     
-    function loadQuestionsFromJSON() {
-        fetch('quiz-questions.json') // Assurez-vous que le fichier est dans le bon emplacement
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Replace the content of localStorage with the new data
-                localStorage.setItem('quizQuestions', JSON.stringify(data));
-            })
-            .catch(error => {
-                console.error('Error fetching the JSON file:', error);
-            });
-    }
-    
     function viewQuestions() {
         const storedQuestions = JSON.parse(localStorage.getItem('quizQuestions')) || [];
         if (storedQuestions.length === 0) {
@@ -368,11 +351,45 @@
             });
         }
         menuContainer.classList.add('show'); // Trigger the animation on load
-    };
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        loadQuestionsFromJSON();
+        
+        // Function to load existing quiz questions from a JSON file and update localStorage
+function loadQuestionsFromJSON() {
+    fetch('quiz-questions.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => updateLocalStorageWithNewQuestions(data))
+        .catch(error => {
+            console.error('Error fetching the JSON file:', error);
+        });
+}
+
+// Function to update localStorage with new questions from the JSON file
+function updateLocalStorageWithNewQuestions(newQuestions) {
+    const storedQuestions = JSON.parse(localStorage.getItem('quizQuestions')) || [];
+
+    newQuestions.forEach(newQuestion => {
+        const existingIndex = storedQuestions.findIndex(q => 
+            q.question === newQuestion.question && 
+            JSON.stringify(q.answers) === JSON.stringify(newQuestion.answers)
+        );
+
+        if (existingIndex === -1) {
+            storedQuestions.push(newQuestion); // Only add if it doesn't already exist
+        }
     });
+
+    // Store the updated list back to localStorage
+    localStorage.setItem('quizQuestions', JSON.stringify(storedQuestions));
+}
+
+// Call this function to load questions from JSON when needed
+loadQuestionsFromJSON();
+
+    };
   </script>
 </body>
 
