@@ -261,6 +261,23 @@
         window.location.href = 'quiz.html'; 
     }
     
+    function loadQuestionsFromJSON() {
+        fetch('quiz-questions.json') // Assurez-vous que le fichier est dans le bon emplacement
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Replace the content of localStorage with the new data
+                localStorage.setItem('quizQuestions', JSON.stringify(data));
+            })
+            .catch(error => {
+                console.error('Error fetching the JSON file:', error);
+            });
+    }
+    
     function viewQuestions() {
         const storedQuestions = JSON.parse(localStorage.getItem('quizQuestions')) || [];
         if (storedQuestions.length === 0) {
@@ -352,6 +369,10 @@
         }
         menuContainer.classList.add('show'); // Trigger the animation on load
     };
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        loadQuestionsFromJSON();
+    });
   </script>
 </body>
 
