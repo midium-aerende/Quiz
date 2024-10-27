@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Enseignement Secondaire</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #F9D348;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .quiz-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease-in-out;
+      text-align: left;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .quiz-header {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: left;
+      animation: slideDown 0.6s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      height: 5px;
+      background-color: #FF5252;
+      width: 0;
+      border-radius: 10px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .quiz-options {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+    }
+
+    .quiz-options li {
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeInOption 0.3s ease forwards;
+    }
+
+    @keyframes fadeInOption {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .quiz-options label {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      transition: background-color 0.3s, border-color 0.3s;
+      width: 100%;
+      position: relative;
+    }
+
+    .quiz-options input[type="radio"] {
+      margin-right: 10px;
+      accent-color: #FF5252;
+    }
+
+    .quiz-options label.correct {
+      background-color: #C8E6C9;
+      border-color: #4CAF50;
+      color: #388E3C;
+    }
+
+    .quiz-options label.incorrect {
+      background-color: #FFCDD2;
+      border-color: #F44336;
+      color: #D32F2F;
+    }
+
+    .quiz-description {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    .quiz-navigation {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .quiz-navigation button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #FF5252;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .quiz-navigation button:hover {
+      background-color: #E64A19;
+      transform: translateY(-3px);
+    }
+
+    .quiz-navigation button:active {
+      transform: translateY(1px);
+    }
+
+    .quiz-skip {
+      text-align: right;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .quiz-skip a {
+      font-size: 14px;
+      color: #AAA;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .quiz-skip a:hover {
+      color: #FF5252;
+    }
+
+    @media (max-width: 500px) {
+      .quiz-container {
+        padding: 20px;
+      }
+
+      .quiz-header {
+        font-size: 18px;
+      }
+
+      .quiz-options label {
+        font-size: 14px;
+      }
+    }
+
+    .toast {
+      visibility: hidden;
+      min-width: 250px;
+      margin: 0 auto;
+      background-color: #FF5252;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      padding: 10px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      top: 30px;
+      /* Changed from bottom to top */
+      font-size: 14px;
+      transform: translateX(-50%);
+    }
+
+    .toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+      from {
+        top: 0;
+        opacity: 0;
+      }
+
+      to {
+        top: 30px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeout {
+      from {
+        top: 30px;
+        opacity: 1;
+      }
+
+      to {
+        top: 0;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="quiz-container">
+    <div class="quiz-skip">
+      <a href="#" onclick="skipQuestion()">Sauter</a>
+    </div>
+    <div class="quiz-header" id="quiz-question"></div>
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <ul class="quiz-options" id="quiz-options"></ul>
+    <div class="quiz-description">
+      Une fois que vous avez choisi votre réponse, cliquez sur "Suivant" pour passer à la question suivante.
+    </div>
+    <div class="quiz-navigation">
+      <button id="next-button" onclick="nextQuestion()">Suivant</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Veuillez sélectionner une réponse avant de continuer !</div>
+
+  <script>
+    let questions = JSON.parse(localStorage.getItem('quizQuestions')) || [];
+    
+    // Récupérer la difficulté stockée
+    const storedDifficulty = localStorage.getItem('quizDifficulty');
+    
+    console.log(storedDifficulty);
+    
+    // Définir les limites de questions selon la difficulté
+    const questionLimits = {
+              facile: 5,    // Limite pour la difficulté facile
+              moyenne: 10, // Limite pour la difficulté moyenne
+              difficile: 15    // Limite pour la difficulté difficile
+          };
+          
+          // Déterminer la limite de questions à afficher
+          const questionLimit = questionLimits[storedDifficulty] || 5; // 10 par défaut si la difficulté n'est pas définie
+          
+          // Fonction pour mélanger les éléments d'un tableau
+          function shuffle(array) {
+              for (let i = array.length - 1; i > 0; i--) {
+                  const j = Math.floor(Math.random() * (i + 1));
+                  [array[i], array[j]] = [array[j], array[i]];
+              }
+              return array;
+          }
+          
+          // Mélange les questions et limite selon la difficulté
+          questions = shuffle(questions).slice(0, questionLimit);
+          
+          let currentQuestionIndex = 0;
+          let answers = [];
+          
+          function displayQuestion(index) {
+              if (index >= questions.length) {
+                  localStorage.setItem('quizAnswers', JSON.stringify(answers));
+                  window.location.href = 'result.html';
+                  return;
+              }
+          
+              const question = questions[index];
+              document.getElementById('quiz-question').innerText = question.question;
+          
+              const optionsContainer = document.getElementById('quiz-options');
+              optionsContainer.innerHTML = '';
+          
+              // Mélange les réponses pour chaque question
+              const shuffledAnswers = shuffle([...question.answers]);
+              shuffledAnswers.forEach((answer, answerIndex) => {
+                  const li = document.createElement('li');
+                  
+                  // Trouve l'index original de la réponse mélangée pour vérifier si elle est correcte
+                  const originalIndex = question.answers.indexOf(answer);
+                  li.innerHTML = `
+                      <label>
+                          <input type="radio" name="quiz" value="${originalIndex}"> ${answer}
+                      </label>
+                  `;
+                  optionsContainer.appendChild(li);
+              });
+          
+              const progressBar = document.getElementById('progress-bar');
+              progressBar.style.width = `${(index + 1) / questions.length * 100}%`;
+          
+              document.getElementById('next-button').innerText = index === questions.length - 1 ? "Terminer" : "Suivant";
+          }
+          
+          function nextQuestion() {
+    const selectedOption = document.querySelector('input[name="quiz"]:checked');
+    if (selectedOption) {
+        const selectedValue = parseInt(selectedOption.value);
+        const question = questions[currentQuestionIndex];
+        const correctAnswerIndex = question.correctAnswer;
+    
+        document.querySelectorAll('input[name="quiz"]').forEach((input) => {
+            const label = input.parentElement;
+            const answerIndex = parseInt(input.value);
+            if (answerIndex === correctAnswerIndex) {
+                label.classList.add('correct');
+            } else if (input.checked) {
+                label.classList.add('incorrect');
+            }
+            input.disabled = true;
+        });
+    
+        // Save the selected answer text for each question
+        const selectedAnswerText = question.answers[selectedValue];
+        answers[currentQuestionIndex] = selectedValue === correctAnswerIndex;
+        const userResponses = JSON.parse(localStorage.getItem('userResponses')) || [];
+        userResponses[currentQuestionIndex] = selectedAnswerText;
+        localStorage.setItem('userResponses', JSON.stringify(userResponses));
+    
+        setTimeout(() => {
+            currentQuestionIndex++;
+            displayQuestion(currentQuestionIndex);
+        }, 1000);
+    } else {
+        showToast("Veuillez sélectionner une réponse avant de continuer !");
+    }
+    }
+     
+          function skipQuestion() {
+              answers[currentQuestionIndex] = null;
+              currentQuestionIndex++;
+              displayQuestion(currentQuestionIndex);
+          }
+          
+          function showToast(message) {
+              const toast = document.getElementById('toast');
+              toast.innerText = message;
+              toast.classList.add('show');
+              setTimeout(() => { toast.classList.remove('show'); }, 3000);
+          }
+          
+          // Affiche la première question
+          displayQuestion(currentQuestionIndex);
+  </script>
+</body>
+
+</html>

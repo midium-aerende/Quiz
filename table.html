@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails des Questions du Quiz</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F9D348;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .table-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .table-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px 0;
+            color: #333;
+        }
+
+        .table-wrapper {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            word-wrap: break-word;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        th {
+            background-color: #FF5252;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FFEBEE;
+        }
+
+        tr:hover {
+            background-color: #E64A19;
+            transition: background-color 0.2s;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #FF5252;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #E64A19;
+            transform: scale(1.05);
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            padding: 0;
+            height: 100%;
+            transition: transform 0.2s;
+        }
+
+        .delete-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .delete-icon {
+            stroke: #FF5252;
+            fill: none;
+            stroke-width: 4;
+            width: 24px;
+            height: 24px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .modal-content button {
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #FF5252;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #E64A19;
+        }
+
+        @media (max-width: 600px) {
+            .table-container {
+                padding: 15px;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .table-wrapper {
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="table-container">
+        <div class="table-header">Détails des Questions du Quiz</div>
+        <div class="table-wrapper">
+            <table id="questions-table">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Réponses</th>
+                        <th>Réponse Correcte</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="window.location.href='index.html';">Retour au Quiz</button>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <p>Êtes-vous sûr de vouloir supprimer cette question ?</p>
+            <button id="confirmDeleteBtn">Confirmer</button>
+            <button id="cancelDeleteBtn">Annuler</button>
+        </div>
+    </div>
+
+    <script>
+        let storedQuestions = JSON.parse(localStorage.getItem('quizQuestions')) || [];
+        let questionToDeleteIndex = null;
+
+        const questionsTable = document.getElementById('questions-table').getElementsByTagName('tbody')[0];
+
+        function renderQuestions() {
+            questionsTable.innerHTML = '';
+
+            if (storedQuestions.length > 0) {
+                storedQuestions.forEach((quizQuestion, index) => {
+                    const row = questionsTable.insertRow();
+                    row.insertCell(0).innerText = quizQuestion.question;
+                    const answersList = quizQuestion.answers.join(', ');
+                    row.insertCell(1).innerText = answersList;
+                    const correctAnswer = quizQuestion.answers[quizQuestion.correctAnswer];
+                    row.insertCell(2).innerText = correctAnswer;
+
+                    const actionCell = row.insertCell(3);
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('delete-btn');
+                    deleteBtn.innerHTML = `<svg class="delete-icon" viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="4"/><line x1="4" y1="4" x2="20" y2="20"/></svg>`;
+                    deleteBtn.onclick = () => openModal(index);
+                    actionCell.appendChild(deleteBtn);
+                });
+            } else {
+                const row = questionsTable.insertRow();
+                const cell = row.insertCell(0);
+                cell.colSpan = 4;
+                cell.innerText = 'Aucune question trouvée.';
+                cell.style.textAlign = 'center';
+            }
+        }
+
+        function openModal(index) {
+            questionToDeleteIndex = index;
+            document.getElementById('confirmationModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+
+        document.getElementById('confirmDeleteBtn').onclick = () => {
+            if (questionToDeleteIndex !== null) {
+                storedQuestions.splice(questionToDeleteIndex, 1);
+                localStorage.setItem('quizQuestions', JSON.stringify(storedQuestions));
+                renderQuestions();
+                closeModal();
+            }
+        };
+
+        document.getElementById('cancelDeleteBtn').onclick = closeModal;
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('confirmationModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        renderQuestions();
+    </script>
+
+</body>
+</html>

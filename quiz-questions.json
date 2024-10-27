@@ -1,0 +1,359 @@
+[
+    
+    {
+        "question": "Quel physicien est connu pour sa théorie de la relativité restreinte et générale ?",
+        "answers": ["Isaac Newton", "Albert Einstein", "Niels Bohr", "Max Planck"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le métal le plus précieux sur Terre, surpassant l'or en valeur ?",
+        "answers": ["Platine", "Rhodium", "Argent", "Iridium"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le nom scientifique du phénomène lumineux des aurores boréales ?",
+        "answers": ["Effet Doppler", "Radiation Cherenkov", "Aurora Polaris", "Effet Raman"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel est le chiffre romain pour le nombre 1000 ?",
+        "answers": ["D", "M", "L", "C"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "En quelle année l'Empire romain d'Occident est-il tombé ?",
+        "answers": ["323", "476", "527", "843"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel artiste a peint 'Guernica' pour dénoncer les horreurs de la guerre ?",
+        "answers": ["Salvador Dalí", "Pablo Picasso", "Joan Miró", "Francisco Goya"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle civilisation est responsable de la construction de Machu Picchu ?",
+        "answers": ["Aztèques", "Incas", "Mayas", "Olmèques"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le plus grand satellite naturel de Saturne ?",
+        "answers": ["Europe", "Io", "Ganymède", "Titan"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Quel est l'élément chimique avec le numéro atomique 79 ?",
+        "answers": ["Platine", "Or", "Argent", "Mercure"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Qui est l'auteur du poème épique 'La Divine Comédie' ?",
+        "answers": ["Dante Alighieri", "Geoffrey Chaucer", "John Milton", "Homer"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quelle planète est souvent appelée l'étoile du matin ou du soir ?",
+        "answers": ["Mars", "Vénus", "Jupiter", "Mercure"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel philosophe grec est l'auteur de 'La République' ?",
+        "answers": ["Socrate", "Platon", "Aristote", "Épicure"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Dans quelle ville italienne trouve-t-on la célèbre sculpture de David par Michel-Ange ?",
+        "answers": ["Rome", "Florence", "Venise", "Naples"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel explorateur a été le premier à atteindre le pôle Sud en 1911 ?",
+        "answers": ["Robert Scott", "Roald Amundsen", "Ernest Shackleton", "James Cook"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Dans quelle ville se trouve le célèbre 'Cristo Redentor' au Brésil ?",
+        "answers": ["Brasilia", "Rio de Janeiro", "Salvador", "São Paulo"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle est la science qui étudie les champignons ?",
+        "answers": ["Botanique", "Zoologie", "Mycologie", "Virologie"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Qui a écrit le roman 'Crime et Châtiment' ?",
+        "answers": ["Léon Tolstoï", "Fiodor Dostoïevski", "Anton Tchekhov", "Vladimir Nabokov"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel élément chimique est représenté par le symbole 'K' ?",
+        "answers": ["Krypton", "Potassium", "Calcium", "Kadmium"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le plus grand satellite naturel du système solaire ?",
+        "answers": ["La Lune", "Ganymède", "Titan", "Io"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle est la valeur de l'accélération due à la gravité sur Terre ?",
+        "answers": ["9,8 m/s²", "7,5 m/s²", "10,2 m/s²", "8,6 m/s²"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel musicien est surnommé le 'Roi de la pop' ?",
+        "answers": ["Elvis Presley", "Michael Jackson", "Prince", "Freddie Mercury"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel océan borde l'Antarctique ?",
+        "answers": ["Pacifique", "Arctique", "Atlantique", "Océan Austral"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Qui a inventé l'alphabet cyrillique ?",
+        "answers": ["Saint Clément", "Saint Méthode", "Saint Cyrille", "Saint Vladimir"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel philosophe a écrit 'Le Prince' ?",
+        "answers": ["John Locke", "Platon", "Aristote", "Machiavel"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Quel est le tissu le plus léger dans le corps humain ?",
+        "answers": ["Tissu musculaire", "Tissu nerveux", "Tissu épithélial", "Tissu conjonctif"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Dans quelle mer se trouve l'île de Malte ?",
+        "answers": ["Mer Noire", "Mer Égée", "Mer Méditerranée", "Mer Caspienne"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quelle est la couleur de la boîte noire d’un avion ?",
+        "answers": ["Noir", "Orange", "Bleu", "Rouge"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Dans quel pays trouve-t-on le plus grand nombre de pyramides ?",
+        "answers": ["Égypte", "Mexique", "Soudan", "Pérou"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel scientifique a formulé la première loi de la thermodynamique ?",
+        "answers": ["Sadi Carnot", "Isaac Newton", "Nicolas Léonard Sadi Carnot", "James Joule"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Quelle est la distance de la Terre à la Lune ?",
+        "answers": ["384 400 km", "150 000 km", "500 000 km", "800 000 km"],
+        "correctAnswer": 0
+    }
+
+    {
+        "question": "Quel est le capital de la France ?",
+        "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel est le plus grand océan du monde ?",
+        "answers": ["Atlantique", "Indien", "Arctique", "Pacifique"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Qui a écrit 'Les Misérables' ?",
+        "answers": ["Victor Hugo", "Gustave Flaubert", "Émile Zola", "Marcel Proust"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel est l'élément chimique dont le symbole est 'O' ?",
+        "answers": ["Or", "Oxygène", "Argon", "Hydrogène"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle planète est connue comme la planète rouge ?",
+        "answers": ["Terre", "Mars", "Jupiter", "Vénus"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le plus haut sommet du monde ?",
+        "answers": ["K2", "Kangchenjunga", "Mont Everest", "Mont Kilimandjaro"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Qui a peint la Mona Lisa ?",
+        "answers": ["Pablo Picasso", "Leonard de Vinci", "Vincent van Gogh", "Claude Monet"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel pays est connu pour ses kangourous ?",
+        "answers": ["Nouvelle-Zélande", "Australie", "Afrique du Sud", "Canada"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est l'instrument de musique à cordes pincées ?",
+        "answers": ["Guitare", "Piano", "Flûte", "Batterie"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel est le symbole chimique de l'eau ?",
+        "answers": ["H2O", "O2", "CO2", "NaCl"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel est le plus grand désert du monde ?",
+        "answers": ["Sahara", "Désert de Gobi", "Antarctique", "Kalahari"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel est l'organe principal de la circulation sanguine ?",
+        "answers": ["Poumons", "Cœur", "Foie", "Reins"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Qui a découvert la pénicilline ?",
+        "answers": ["Marie Curie", "Alexander Fleming", "Louis Pasteur", "Isaac Newton"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le pays d'origine des pâtes ?",
+        "answers": ["France", "Chine", "Italie", "Grèce"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quelle est la langue la plus parlée au monde ?",
+        "answers": ["Espagnol", "Anglais", "Mandarin", "Arabe"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel animal est connu comme le roi de la jungle ?",
+        "answers": ["Tigre", "Lion", "Éléphant", "Giraffe"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle est la capitale du Japon ?",
+        "answers": ["Kyoto", "Tokyo", "Osaka", "Hokkaido"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est l'organe responsable de la vision ?",
+        "answers": ["Cerveau", "Cœur", "Yeux", "Oreilles"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel métal est liquide à température ambiante ?",
+        "answers": ["Mercure", "Fer", "Aluminium", "Cuivre"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Qui a écrit 'Roméo et Juliette' ?",
+        "answers": ["Charles Dickens", "William Shakespeare", "Leo Tolstoy", "Mark Twain"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le pays le plus peuplé du monde ?",
+        "answers": ["Inde", "États-Unis", "Chine", "Indonésie"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quelle est la plus grande planète du système solaire ?",
+        "answers": ["Terre", "Saturne", "Jupiter", "Neptune"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quel est le principal gaz à effet de serre ?",
+        "answers": ["Oxygène", "Carbone diémique", "Méthane", "Dioxyde de carbone"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Qui a peint 'La Nuit étoilée' ?",
+        "answers": ["Claude Monet", "Vincent van Gogh", "Pablo Picasso", "Henri Matisse"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le symbole chimique du fer ?",
+        "answers": ["Fe", "F", "Ir", "Fi"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel est le nom du premier homme à avoir marché sur la Lune ?",
+        "answers": ["Yuri Gagarin", "Buzz Aldrin", "Neil Armstrong", "Michael Collins"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quelle est la monnaie utilisée au Japon ?",
+        "answers": ["Yen", "Won", "Dollar", "Euro"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quelle est la capitale de l'Italie ?",
+        "answers": ["Florence", "Rome", "Milan", "Venise"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est l'organe responsable de l'audition ?",
+        "answers": ["Cerveau", "Oreilles", "Yeux", "Nez"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est l'instrument de musique à vent le plus ancien ?",
+        "answers": ["Flûte", "Saxophone", "Trompette", "Hautbois"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Quel est le plus grand mammifère marin ?",
+        "answers": ["Requin blanc", "Dauphin", "Baleine bleue", "Orque"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "En quelle année l'homme a-t-il marché sur la Lune pour la première fois ?",
+        "answers": ["1965", "1969", "1971", "1975"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le plus long fleuve du monde ?",
+        "answers": ["Nil", "Amazone", "Yangzi Jiang", "Mississippi"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel pays est surnommé 'le pays du Soleil-Levant' ?",
+        "answers": ["Chine", "Corée", "Thaïlande", "Japon"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Quelle est la plus petite planète du système solaire ?",
+        "answers": ["Mars", "Mercure", "Pluton", "Vénus"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quelle est la capitale de l'Australie ?",
+        "answers": ["Sydney", "Canberra", "Melbourne", "Brisbane"],
+        "correctAnswer": 1
+    },
+    {
+        "question": "Quel est le plus grand pays du monde en superficie ?",
+        "answers": ["Canada", "Chine", "États-Unis", "Russie"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "Dans quelle ville se trouve la Tour Eiffel ?",
+        "answers": ["Paris", "Lyon", "Marseille", "Nice"],
+        "correctAnswer": 0
+    },
+    {
+        "question": "Qui a composé la 5e Symphonie ?",
+        "answers": ["Mozart", "Bach", "Beethoven", "Chopin"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Qui a peint 'La Cène' ?",
+        "answers": ["Raphaël", "Michel-Ange", "Leonard de Vinci", "Donatello"],
+        "correctAnswer": 2
+    },
+    {
+        "question": "Quelle est la plus ancienne civilisation connue ?",
+        "answers": ["Égypte", "Mésopotamie", "Chine", "Indus"],
+        "correctAnswer": 1
+    }
+]
